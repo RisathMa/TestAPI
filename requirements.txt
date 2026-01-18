@@ -1,0 +1,26 @@
+# Clean Reader API Dependencies
+# FastAPI Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# Database
+sqlalchemy==2.0.25
+aiosqlite==0.19.0
+
+# HTTP Client
+httpx==0.26.0
+
+# Content Extraction
+readability-lxml==0.8.1
+lxml==5.1.0
+html2text==2024.2.26
+
+# Configuration
+python-dotenv==1.0.0
+pydantic-settings==2.1.0
+
+# Security
+python-jose[cryptography]==3.3.0
+
+# Utilities
+python-dateutil==2.8.2
