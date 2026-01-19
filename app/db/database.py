@@ -13,7 +13,7 @@ settings = get_settings()
 connect_args = {"check_same_thread": False} if "sqlite" in settings.database_url else {}
 
 engine = create_engine(
-    settings.database_url,
+    settings.sync_database_url,
     connect_args=connect_args,
     echo=settings.debug  # Log SQL queries in debug mode
 )

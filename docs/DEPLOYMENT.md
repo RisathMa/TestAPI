@@ -31,7 +31,7 @@ sudo su - cleanreader
 
 ```bash
 cd /home/cleanreader
-git clone <your-repo-url> api
+git clone https://github.com/RisathMa/TestAPI.git api
 cd api
 
 # Create virtual environment

@@ -36,6 +36,13 @@ class Settings(BaseSettings):
     alert_threshold_warning: int = 80
     alert_threshold_critical: int = 100
 
+    @property
+    def sync_database_url(self) -> str:
+        """Fix for Postgres URL prefix used by Vercel/Heroku."""
+        if self.database_url.startswith("postgres://"):
+            return self.database_url.replace("postgres://", "postgresql://", 1)
+        return self.database_url
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
