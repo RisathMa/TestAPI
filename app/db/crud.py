@@ -81,9 +81,12 @@ def validate_api_key(db: Session, key: str) -> tuple[bool, Optional[APIKey], Opt
 
 def increment_api_key_usage(db: Session, api_key: APIKey) -> None:
     """Increment the usage counter and update last_used timestamp."""
+    # Ensure object is attached to current session if it was detached from another session
+    db.add(api_key)
     api_key.requests_this_month += 1
     api_key.last_used_at = datetime.utcnow()
     db.commit()
+    db.refresh(api_key)
 
 
 # ============================================================================

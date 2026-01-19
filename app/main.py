@@ -14,6 +14,7 @@ from app.db.crud import create_api_key, get_api_key_by_key
 from app.api.v1.router import router as v1_router
 from app.middleware.auth import AuthMiddleware
 from app.middleware.logging import LoggingMiddleware
+from app.middleware.rate_limiter import RateLimiterMiddleware
 
 settings = get_settings()
 
@@ -95,7 +96,7 @@ Authorization: Bearer sk_live_your_api_key
 ### Quick Start
 
 ```bash
-curl -X POST https://api.cleanreader.com/v1/extract \\
+curl -X POST https://api.companyrm.lk/v1/extract \\
   -H "Authorization: Bearer sk_live_your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://example.com/article"}'
@@ -106,16 +107,23 @@ curl -X POST https://api.cleanreader.com/v1/extract \\
     lifespan=lifespan
 )
 
-# Add CORS middleware (configure for production)
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure for your domain in production
+    allow_origins=[
+        "http://localhost:3000",
+        "https://companyrm.lk",
+        "https://www.companyrm.lk",
+        "https://api.companyrm.lk"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Add custom middleware (order matters: last added = first executed)
+# RateLimiter runs after Auth (needs API key info), Auth runs after Logging
+app.add_middleware(RateLimiterMiddleware)
 app.add_middleware(AuthMiddleware)
 app.add_middleware(LoggingMiddleware)
 

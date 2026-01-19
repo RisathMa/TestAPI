@@ -19,7 +19,7 @@ Authorization: Bearer sk_live_your_api_key
 ### Basic Request
 
 ```bash
-curl -X POST http://localhost:8000/v1/extract \
+curl -X POST https://api.companyrm.lk/v1/extract \
   -H "Authorization: Bearer sk_test_demo_key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -61,7 +61,7 @@ curl -X POST http://localhost:8000/v1/extract \
 ### Full Options Request
 
 ```bash
-curl -X POST http://localhost:8000/v1/extract \
+curl -X POST https://api.companyrm.lk/v1/extract \
   -H "Authorization: Bearer sk_test_demo_key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -123,7 +123,7 @@ curl -X POST http://localhost:8000/v1/extract \
 ### Invalid API Key
 
 ```bash
-curl -X POST http://localhost:8000/v1/extract \
+curl -X POST https://api.companyrm.lk/v1/extract \
   -H "Authorization: Bearer invalid_key" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://example.com"}'
@@ -177,7 +177,7 @@ curl -X POST http://localhost:8000/v1/extract \
 import requests
 
 API_KEY = "sk_live_your_api_key"
-BASE_URL = "https://api.cleanreader.com"
+BASE_URL = "https://api.companyrm.lk"
 
 def extract_url(url: str, include_images: bool = False) -> dict:
     """Extract clean content from a URL."""
