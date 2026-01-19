@@ -32,19 +32,19 @@
 
 ```bash
 # Get account status
-curl -X GET https://api.companyrm.lk/v1/account \
+curl -X GET https://apis.companyrm.lk/v1/account \
   -H "Authorization: Bearer sk_live_your_key"
 
 # Get usage summary
-curl -X GET https://api.companyrm.lk/v1/usage \
+curl -X GET https://apis.companyrm.lk/v1/usage \
   -H "Authorization: Bearer sk_live_your_key"
 
 # Get usage history
-curl -X GET "https://api.companyrm.lk/v1/usage/history?limit=50" \
+curl -X GET "https://apis.companyrm.lk/v1/usage/history?limit=50" \
   -H "Authorization: Bearer sk_live_your_key"
 
 # Get tier comparison
-curl -X GET https://api.companyrm.lk/v1/tiers \
+curl -X GET https://apis.companyrm.lk/v1/tiers \
   -H "Authorization: Bearer sk_live_your_key"
 ```
 
@@ -140,7 +140,7 @@ X-RateLimit-Remaining-Day: 1945
 import requests
 
 response = requests.post(
-    "https://api.companyrm.lk/v1/extract",
+    "https://apis.companyrm.lk/v1/extract",
     headers={"Authorization": "Bearer sk_live_xxx"},
     json={"url": "https://example.com/article"}
 )
@@ -157,7 +157,7 @@ class CleanReaderLoader(WebBaseLoader):
     
     def load(self, url: str):
         response = requests.post(
-            "https://api.companyrm.lk/v1/extract",
+            "https://apis.companyrm.lk/v1/extract",
             headers={"Authorization": f"Bearer {self.api_key}"},
             json={"url": url}
         )

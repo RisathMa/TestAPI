@@ -62,20 +62,20 @@ uvicorn app.main:app --reload --port 8000
 
 ```bash
 # Health check
-curl https://api.companyrm.lk/health
+curl https://apis.companyrm.lk/health
 
 # Extract content (use demo key)
-curl -X POST https://api.companyrm.lk/v1/extract \
+curl -X POST https://apis.companyrm.lk/v1/extract \
   -H "Authorization: Bearer sk_test_demo_key" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://example.com"}'
 
 # Check your account status
-curl https://api.companyrm.lk/v1/account \
+curl https://apis.companyrm.lk/v1/account \
   -H "Authorization: Bearer sk_test_demo_key"
 
 # View usage statistics
-curl https://api.companyrm.lk/v1/usage \
+curl https://apis.companyrm.lk/v1/usage \
   -H "Authorization: Bearer sk_test_demo_key"
 ```
 
@@ -95,8 +95,8 @@ curl https://api.companyrm.lk/v1/usage \
 | GET | `/v1/tiers` | Available pricing tiers |
 
 ### Documentation
-- **Swagger UI**: https://api.companyrm.lk/docs
-- **ReDoc**: https://api.companyrm.lk/redoc
+- **Swagger UI**: https://apis.companyrm.lk/docs
+- **ReDoc**: https://apis.companyrm.lk/redoc
 
 ## 📁 Project Structure
 
@@ -149,7 +149,7 @@ X-RateLimit-Remaining-Day: 1945
 import requests
 
 response = requests.post(
-    "https://api.companyrm.lk/v1/extract",
+    "https://apis.companyrm.lk/v1/extract",
     headers={"Authorization": "Bearer sk_live_xxx"},
     json={"url": "https://example.com/article"}
 )

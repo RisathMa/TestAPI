@@ -96,7 +96,7 @@ Authorization: Bearer sk_live_your_api_key
 ### Quick Start
 
 ```bash
-curl -X POST https://api.companyrm.lk/v1/extract \\
+curl -X POST https://apis.companyrm.lk/v1/extract \\
   -H "Authorization: Bearer sk_live_your_api_key" \\
   -H "Content-Type: application/json" \\
   -d '{"url": "https://example.com/article"}'
@@ -114,7 +114,7 @@ app.add_middleware(
         "http://localhost:3000",
         "https://companyrm.lk",
         "https://www.companyrm.lk",
-        "https://api.companyrm.lk"
+        "https://apis.companyrm.lk"
     ],
     allow_credentials=True,
     allow_methods=["*"],
